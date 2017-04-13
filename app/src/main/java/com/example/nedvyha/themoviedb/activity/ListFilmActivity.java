@@ -42,11 +42,6 @@ public class ListFilmActivity extends AppCompatActivity {
         ProcessFilmDataListActivity processFilmData = new ProcessFilmDataListActivity();
         processFilmData.execute();
 
-/*        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
     }
 
     @Override
@@ -83,7 +78,6 @@ public class ListFilmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState, persistentState);
     }
 
-
     public class ProcessFilmDataListActivity extends AsyncTask<Void, Void, Void> {
         private ApiFilmRequest apiFilmRequest = new ApiFilmRequest();
 
@@ -96,10 +90,6 @@ public class ListFilmActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-/*            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(ListFilmActivity.this);
-            recyclerView.setLayoutManager(mLayoutManager);
-            RecyclerView.Adapter mAdapter = new RecyclerAdapter(ListFilmActivity.this, films);
-            recyclerView.setAdapter(mAdapter);*/
             recyclerView.setLayoutManager(new LinearLayoutManager(ListFilmActivity.this));
             recyclerView.setItemAnimator(new DefaultItemAnimator());
             adapter = new RecyclerAdapter(ListFilmActivity.this, films);

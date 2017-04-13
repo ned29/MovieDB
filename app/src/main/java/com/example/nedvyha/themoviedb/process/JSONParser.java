@@ -17,7 +17,7 @@ public class JSONParser {
     private static String name;
     private static String overview;
     private static String poster;
-    private static String  id;
+    private static String id;
     ArrayList<Film> filmsinfo = new ArrayList<>();
 
     public List<Film> getData(String inputData) {

@@ -3,9 +3,7 @@ package com.example.nedvyha.themoviedb.activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -15,14 +13,11 @@ import com.bumptech.glide.Glide;
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.data.FilmDetails;
 import com.example.nedvyha.themoviedb.process.ProcessFilmData;
-import com.example.nedvyha.themoviedb.utils.HelperUrl;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import java.util.concurrent.TimeUnit;
 
-import static android.content.ContentValues.TAG;
-
-public class FilmDetailsActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class FilmDetailsActivity extends AppCompatActivity {
     ImageView poster;
     TextView title;
     TextView overview;
@@ -49,7 +44,7 @@ public class FilmDetailsActivity extends AppCompatActivity implements SearchView
 
         Bundle bundle = getIntent().getExtras();
 
-        ProcessFilmData processFilmDetails = new ProcessFilmData(this,StringNames.getFilmDetailsUrl());
+        ProcessFilmData processFilmDetails = new ProcessFilmData(this, StringNames.getFilmDetailsUrl());
         processFilmDetails.execute();
 
         Typeface captureFontType = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
@@ -103,15 +98,5 @@ public class FilmDetailsActivity extends AppCompatActivity implements SearchView
             super.onBackPressed();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        return false;
     }
 }
