@@ -17,6 +17,7 @@ public class JSONParser {
     private static String name;
     private static String overview;
     private static String poster;
+    private static String  id;
     ArrayList<Film> filmsinfo = new ArrayList<>();
 
     public List<Film> getData(String inputData) {
@@ -28,7 +29,8 @@ public class JSONParser {
                     name = filmDataArray.getJSONObject(i).getString("title");
                     overview = filmDataArray.getJSONObject(i).getString("overview");
                     poster = filmDataArray.getJSONObject(i).getString("poster_path");
-                    filmsinfo.add(new Film(name, overview, poster));
+                    id = filmDataArray.getJSONObject(i).getString("id");
+                    filmsinfo.add(new Film(name, overview, poster, id));
                 }
             } catch (final JSONException e) {
                 Log.e(TAG, "Json parsing error: " + e.getMessage());

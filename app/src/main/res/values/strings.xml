@@ -5,4 +5,5 @@
     <string name="title_activity_top_rated">Top Rated</string>
     <string name="list_name">popular_list</string>
     <string name="title_activity_gennres">GennresActivity</string>
+    <string name="title_activity_film_details">FilmDetailsActivity</string>
 </resources>

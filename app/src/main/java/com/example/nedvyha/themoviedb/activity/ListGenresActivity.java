@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.GridView;
 
 import com.example.nedvyha.themoviedb.R;
-import com.example.nedvyha.themoviedb.process.ProcessGenresData;
+import com.example.nedvyha.themoviedb.process.ProcessFilmData;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
 public class ListGenresActivity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class ListGenresActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         GridView genresList = (GridView) findViewById(R.id.genres_list);
-        ProcessGenresData processGenresData = new ProcessGenresData(this, genresList);
+        ProcessFilmData processGenresData = new ProcessFilmData(this, genresList);
         processGenresData.execute();
     }
 
@@ -32,7 +32,6 @@ public class ListGenresActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
-
     }
 
     @Override
