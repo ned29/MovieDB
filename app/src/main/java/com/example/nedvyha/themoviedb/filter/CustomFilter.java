@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomFilter extends Filter {
-    public RecyclerAdapter adapter;
-    public List<Film> filmList;
+    private RecyclerAdapter adapter;
+    private List<Film> filmList;
 
     public CustomFilter(List<Film> filterList, RecyclerAdapter adapter) {
         this.adapter = adapter;

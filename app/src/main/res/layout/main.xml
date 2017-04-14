@@ -10,11 +10,11 @@
         android:id="@+id/topRated"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:text="Top Rated"
+        android:text="@string/rated"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="80px"
+        android:textSize="@dimen/size_80_px"
         android:background="@android:color/transparent"/>
 
     <Button
@@ -22,21 +22,21 @@
         android:id="@+id/genres"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:text="Ganres"
+        android:text="@string/genres"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="80px"/>
+        android:textSize="@dimen/size_80_px"/>
 
     <Button
         android:background="@android:color/transparent"
         android:id="@+id/popular"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:text="Popular"
+        android:text="@string/popular"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="80px"/>
+        android:textSize="@dimen/size_80_px"/>
 
 </RelativeLayout>

@@ -4,6 +4,11 @@
     <string name="title_activity_popular">Popular</string>
     <string name="title_activity_top_rated">Top Rated</string>
     <string name="list_name">popular_list</string>
-    <string name="title_activity_gennres">GennresActivity</string>
+    <string name="title_activity_gennres">GenresActivity</string>
     <string name="title_activity_film_details">FilmDetailsActivity</string>
+    <string name="item_search">Search</string>
+    <string name="item_back">Back</string>
+    <string name="genres">Genres</string>
+    <string name="popular">Most Popular</string>
+    <string name="rated">Top Rated</string>
 </resources>

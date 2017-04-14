@@ -37,7 +37,7 @@ public class ButtonAdapter extends ArrayAdapter<Genres> {
             GridView.LayoutParams params = new GridView.LayoutParams(GridView.LayoutParams.MATCH_PARENT,
                     GridView.LayoutParams.WRAP_CONTENT);
             category.setLayoutParams(params);
-            category.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+            category.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
             category.setBackgroundColor(Color.TRANSPARENT);
             category.setText(genres.getName());
             category.setId(genres.getId());

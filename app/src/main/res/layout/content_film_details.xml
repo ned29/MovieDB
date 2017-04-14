@@ -21,16 +21,16 @@
             android:id="@+id/poster_image_details"
             android:layout_width="200px"
             android:layout_height="300px"
-            android:paddingBottom="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp" />
+            android:paddingBottom="@dimen/text_10_sp"
+            android:paddingRight="@dimen/text_10_sp"
+            android:paddingTop="@dimen/text_10_sp" />
 
         <TextView
             android:id="@+id/title_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/poster_image_details"
-            android:textSize="17dp" />
+            android:textSize="@dimen/text_19_sp" />
 
         <TextView
             android:id="@+id/overview_details"
@@ -38,38 +38,33 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/title_details"
             android:layout_toRightOf="@+id/poster_image_details"
-            android:textSize="10dp" />
+            android:textSize="@dimen/text_13_sp" />
         <TextView
             android:id="@+id/budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/poster_image"
             android:layout_below="@+id/poster_image_details"
-            android:layout_weight="1"
-            android:textSize="10dp" />
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/budget"
-            android:layout_weight="1"
-            android:textSize="10dp" />
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/language"
-            android:layout_weight="1"
-            android:textSize="10dp" />
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/runtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/date"
-            android:layout_weight="1"
-            android:textSize="10dp" />
+            android:layout_weight="1" />
     </RelativeLayout>
 </LinearLayout>

@@ -26,8 +26,9 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHolder> implements Filterable {
-    public List<Film> film, filmList;
-    CustomFilter filter;
+    public List<Film> film;
+    private List<Film> filmList;
+    private CustomFilter filter;
     private Context context;
 
     public RecyclerAdapter(Context context, List<Film> film) {
@@ -95,7 +96,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
         return filter;
     }
 
-    public class MyHolder extends RecyclerView.ViewHolder {
+    class MyHolder extends RecyclerView.ViewHolder {
 
         public TextView title;
         public TextView overview;

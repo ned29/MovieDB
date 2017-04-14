@@ -5,4 +5,11 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="text_10_sp">10sp</dimen>
+    <dimen name="text_13_sp">13sp</dimen>
+    <dimen name="text_19_sp">19sp</dimen>
+    <dimen name="text_17_sp">17sp</dimen>
+    <dimen name="size_200_px">200px</dimen>
+    <dimen name="size_300_px">300px</dimen>
+    <dimen name="size_80_px">80px</dimen>
 </resources>
