@@ -22,11 +22,11 @@
             android:label="@string/title_activity_popular"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.ListGenresActivity"
+            android:name=".activity.genres.view.ListGenresActivity"
             android:label="@string/title_activity_gennres"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.FilmDetailsActivity"
+            android:name=".activity.film_details.view.FilmDetailsActivity"
             android:label="@string/title_activity_film_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

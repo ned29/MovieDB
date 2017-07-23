@@ -36,7 +36,7 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
 
     @Nullable
     private RecyclerAdapter adapter;
-    
+
     View root;
 
     @NonNull

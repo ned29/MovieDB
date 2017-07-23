@@ -1,4 +1,4 @@
-package com.example.nedvyha.themoviedb.activity;
+package com.example.nedvyha.themoviedb.activity.film_details.view;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,13 +17,29 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import java.util.concurrent.TimeUnit;
 
+import butterknife.BindView;
+
 public class FilmDetailsActivity extends AppCompatActivity {
+
+    @BindView(R.id.poster_image_details)
     ImageView poster;
+
+    @BindView(R.id.title_details)
     TextView title;
+
+    @BindView(R.id.overview_details)
     TextView overview;
+
+    @BindView(R.id.budget)
     TextView budget;
+
+    @BindView(R.id.language)
     TextView language;
+
+    @BindView(R.id.date)
     TextView data;
+
+    @BindView(R.id.runtime)
     TextView runtime;
 
     @Override
@@ -49,14 +65,6 @@ public class FilmDetailsActivity extends AppCompatActivity {
 
         Typeface captureFontType = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
         Typeface brushFontType = Typeface.createFromAsset(getAssets(), "PlayfairDisplay-Black.otf");
-
-        poster = (ImageView) findViewById(R.id.poster_image_details);
-        title = (TextView) findViewById(R.id.title_details);
-        overview = (TextView) findViewById(R.id.overview_details);
-        budget = (TextView) findViewById(R.id.budget);
-        language = (TextView) findViewById(R.id.language);
-        data = (TextView) findViewById(R.id.date);
-        runtime = (TextView) findViewById(R.id.runtime);
 
         title.setText(bundle.getString("title"));
         title.setTypeface(captureFontType);
@@ -87,7 +95,6 @@ public class FilmDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 

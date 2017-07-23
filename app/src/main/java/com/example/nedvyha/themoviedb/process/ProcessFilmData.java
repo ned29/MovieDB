@@ -4,11 +4,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.GridView;
 
-import com.example.nedvyha.themoviedb.activity.FilmDetailsActivity;
-import com.example.nedvyha.themoviedb.activity.ListGenresActivity;
+import com.example.nedvyha.themoviedb.activity.genres.view.ListGenresActivity;
 import com.example.nedvyha.themoviedb.adapters.ButtonAdapter;
 import com.example.nedvyha.themoviedb.data.Genres;
-import com.example.nedvyha.themoviedb.utils.HelperUrl;
 
 import java.util.List;
 
