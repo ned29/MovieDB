@@ -3,6 +3,7 @@ package com.example.nedvyha.themoviedb.activity.film_list.view;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
@@ -24,11 +25,18 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import java.util.List;
 
+import butterknife.BindView;
+
 public class ListFilmActivity extends AppCompatActivity implements FilmListUseCase.View {
 
     public List<Film> films;
-    RecyclerView recyclerView;
-    RecyclerAdapter adapter;
+
+    @BindView(R.id.my_recycler_view)
+    private RecyclerView recyclerView;
+
+    @Nullable
+    private RecyclerAdapter adapter;
+    
     View root;
 
     @NonNull

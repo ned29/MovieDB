@@ -11,15 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.activity.FilmDetailsActivity;
-import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.data.Film;
 import com.example.nedvyha.themoviedb.filter.CustomFilter;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
@@ -28,7 +25,7 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHolder> implements Filterable {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     public List<Film> film = new ArrayList<>();
 
@@ -44,16 +41,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
     }
 
     @Override
-    public MyHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(context).inflate(R.layout.list_view, viewGroup, false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         v.setLayoutParams(lp);
-        return new MyHolder(v);
+        return new FilmHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(final MyHolder viewHolder, final int i) {
-
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int i) {
+        final FilmHolder viewHolder = (FilmHolder) holder;
         Typeface captureFontType = Typeface.createFromAsset(context.getAssets(), "Capture_it.ttf");
         Typeface brushFontType = Typeface.createFromAsset(context.getAssets(), "PlayfairDisplay-Black.otf");
         viewHolder.title.setTypeface(captureFontType);
@@ -105,19 +102,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
     public void updateFilm(List<Film> film) {
         this.film.addAll(film);
         notifyDataSetChanged();
-    }
-
-    class MyHolder extends RecyclerView.ViewHolder {
-
-        public TextView title;
-        public TextView overview;
-        public ImageView poster;
-
-        public MyHolder(View v) {
-            super(v);
-            title = (TextView) v.findViewById(R.id.title);
-            overview = (TextView) v.findViewById(R.id.overview);
-            poster = (ImageView) v.findViewById(R.id.poster_image);
-        }
     }
 }

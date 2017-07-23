@@ -15,9 +15,18 @@ import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.OnClick;
+
+public class MainActivity extends AppCompatActivity{
+
+    @BindView(R.id.popular)
     Button topPopular;
+
+    @BindView(R.id.topRated)
     Button topRated;
+
+    @BindView(R.id.genres)
     Button genres;
 
     @Override
@@ -25,11 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Typeface face1 = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
 
-        topPopular = (Button) findViewById(R.id.popular);
-        topRated = (Button) findViewById(R.id.topRated);
-        genres = (Button) findViewById(R.id.genres);
+        Typeface face1 = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
 
         topPopular.setTypeface(face1);
         topRated.setTypeface(face1);
@@ -38,35 +44,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         topPopular.setTextColor(Color.GREEN);
         topRated.setTextColor(Color.GREEN);
         genres.setTextColor(Color.GREEN);
-
-        topPopular.setOnClickListener(this);
-        topRated.setOnClickListener(this);
-        genres.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.popular:
-                Intent intentPopular = new Intent(this, ListFilmActivity.class);
-                StringNames.setGenre(HelperUrl.TOP_POPULAR_URL);
-                StringNames.setTitle("Most Popular");
-                startActivity(intentPopular);
-                break;
-            case R.id.topRated:
-                Intent intentTopRated = new Intent(this, ListFilmActivity.class);
-                StringNames.setGenre(HelperUrl.TOP_RATED_URL);
-                StringNames.setTitle("Top Rated");
-                startActivity(intentTopRated);
-                break;
-            case R.id.genres:
-                Intent intentGenresList = new Intent(this, ListGenresActivity.class);
-                StringNames.setTitle("Genres");
-                startActivity(intentGenresList);
-                break;
-            default:
-                break;
-        }
+    @OnClick(R.id.topRated)
+    void openTopRated(){
+        setClick("Top Rated");
+    }
+
+    @OnClick(R.id.genres)
+    void openGenres(){
+        setClick("Genres");
+    }
+
+    @OnClick(R.id.popular)
+    void openPopular(){
+        setClick("Popular");
+    }
+
+    private void setClick(String title){
+        Intent intent = new Intent(this, ListGenresActivity.class);
+        StringNames.setTitle(title);
+        startActivity(intent);
     }
 
     @Override

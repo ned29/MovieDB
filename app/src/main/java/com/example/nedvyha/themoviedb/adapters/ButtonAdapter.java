@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,11 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.List;
 
 public class ButtonAdapter extends ArrayAdapter<Genres> {
+
+    @NonNull
     private Context context;
 
-    public ButtonAdapter(Context context, List<Genres> item) {
+    public ButtonAdapter(@NonNull Context context, List<Genres> item) {
         super(context, R.layout.genres_list, item);
         this.context = context;
     }
