@@ -44,7 +44,7 @@ public class ProcessFilmData extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(aVoid);
         if (activity instanceof ListGenresActivity) {
             ButtonAdapter adapter = new ButtonAdapter(activity, genres);
-            genresList.setAdapter(adapter);
+//            genresList.setAdapter(adapter);
         }
     }
 }

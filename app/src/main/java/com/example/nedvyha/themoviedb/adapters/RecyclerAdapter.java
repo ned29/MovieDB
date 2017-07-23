@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     public List<Film> film = new ArrayList<>();
@@ -36,8 +39,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     private Context context;
 
-    public RecyclerAdapter(Context context) {
+    public RecyclerAdapter(Context context, @NonNull List<Film> films) {
         this.context = context;
+        this.film.addAll(films);
+        Log.i(TAG, "------->>>>>>>>>>>>><<<<<<<<<<<<<<<<<<" + films.get(1).getTitle() + context);
+        notifyDataSetChanged();
     }
 
     @Override

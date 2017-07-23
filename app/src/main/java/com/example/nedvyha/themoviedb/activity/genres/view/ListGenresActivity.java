@@ -11,12 +11,16 @@ import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.process.ProcessFilmData;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
+import butterknife.ButterKnife;
+
 public class ListGenresActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genres);
+
+        ButterKnife.bind(this);
 
         this.setTitle(StringNames.getTitle());
 

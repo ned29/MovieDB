@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,13 +27,15 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ListFilmActivity extends AppCompatActivity implements FilmListUseCase.View {
 
-    public List<Film> films;
+    @SuppressWarnings("unused")
+    private static final String TAG = ListFilmActivity.class.getName();
 
     @BindView(R.id.my_recycler_view)
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
 
     @Nullable
     private RecyclerAdapter adapter;
@@ -56,7 +59,7 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
         setSupportActionBar(toolbar);
 
         presenter = new FilmPresenter(this);
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        ButterKnife.bind(this);
         adapter();
     }
 
@@ -116,8 +119,9 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
 
     @Override
     public void showFilms(@NonNull List<Film> films) {
-        adapter = new RecyclerAdapter(this);
-        adapter.updateFilm(films);
+        adapter = new RecyclerAdapter(this, films);
+        Log.i(TAG, "-------" + films.get(1).getTitle());
+        //adapter.updateFilm(films);
     }
 
     private void adapter() {

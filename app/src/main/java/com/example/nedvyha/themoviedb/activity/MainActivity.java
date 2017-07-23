@@ -10,13 +10,15 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.example.nedvyha.themoviedb.R;
+import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.activity.genres.view.ListGenresActivity;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.popular)
     Button topPopular;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        ButterKnife.bind(this);
 
         Typeface face1 = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
 
@@ -45,22 +48,22 @@ public class MainActivity extends AppCompatActivity{
     }
 
     @OnClick(R.id.topRated)
-    void openTopRated(){
-        setClick("Top Rated");
+    void openTopRated() {
+        setClick("Top Rated", ListFilmActivity.class);
     }
 
     @OnClick(R.id.genres)
-    void openGenres(){
-        setClick("Genres");
+    void openGenres() {
+        setClick("Genres", ListGenresActivity.class);
     }
 
     @OnClick(R.id.popular)
-    void openPopular(){
-        setClick("Popular");
+    void openPopular() {
+        setClick("Popular", ListFilmActivity.class);
     }
 
-    private void setClick(String title){
-        Intent intent = new Intent(this, ListGenresActivity.class);
+    private void setClick(String title, Class className) {
+        Intent intent = new Intent(this, className);
         StringNames.setTitle(title);
         startActivity(intent);
     }

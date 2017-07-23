@@ -18,6 +18,7 @@ import com.example.nedvyha.themoviedb.utils.StringNames;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class FilmDetailsActivity extends AppCompatActivity {
 
@@ -55,6 +56,8 @@ public class FilmDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_film_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ButterKnife.bind(this);
 
         this.setTitle(StringNames.getTitle());
 
