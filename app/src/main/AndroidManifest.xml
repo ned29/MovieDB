@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.ListFilmActivity"
+            android:name=".activity.film_list.view.ListFilmActivity"
             android:label="@string/title_activity_popular"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

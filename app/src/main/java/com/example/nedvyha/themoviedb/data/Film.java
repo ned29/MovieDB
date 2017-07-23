@@ -1,12 +1,26 @@
 package com.example.nedvyha.themoviedb.data;
 
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Film {
+
+    @SerializedName("title")
+    @Expose
     private String title;
+
+    @SerializedName("overview")
+    @Expose
     private String overview;
+
+    @SerializedName("poster_path")
+    @Expose
     private String poster_path;
-    private String  id;
+
+    @SerializedName("id")
+    @Expose
+    private String id;
 
     public Film(String title, String overview, String poster_path, String id) {
         this.title = title;

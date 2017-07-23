@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import com.example.nedvyha.themoviedb.R;
-import com.example.nedvyha.themoviedb.activity.ListFilmActivity;
+import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.data.Genres;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
 import com.example.nedvyha.themoviedb.utils.StringNames;

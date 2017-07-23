@@ -8,14 +8,13 @@ import com.example.nedvyha.themoviedb.activity.FilmDetailsActivity;
 import com.example.nedvyha.themoviedb.activity.ListGenresActivity;
 import com.example.nedvyha.themoviedb.adapters.ButtonAdapter;
 import com.example.nedvyha.themoviedb.data.Genres;
-import com.example.nedvyha.themoviedb.request.ApiFilmRequest;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
 
 import java.util.List;
 
 public class ProcessFilmData extends AsyncTask<Void, Void, Void> {
     private GridView genresList;
-    private ApiFilmRequest apiFilmRequest = new ApiFilmRequest();
+  //  private ApiFilmRequest apiFilmRequest = new ApiFilmRequest();
     private Context activity;
     private String inputData;
 
@@ -33,12 +32,12 @@ public class ProcessFilmData extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        if (activity instanceof ListGenresActivity) {
+       /* if (activity instanceof ListGenresActivity) {
             genres = new JSONParserGenres().getData(apiFilmRequest.httpReguest(HelperUrl.GENRES));
         }
         if (activity instanceof FilmDetailsActivity) {
             JSONParserFilmDetails.getData(apiFilmRequest.httpReguest(inputData));
-        }
+        }*/
         return null;
     }
 

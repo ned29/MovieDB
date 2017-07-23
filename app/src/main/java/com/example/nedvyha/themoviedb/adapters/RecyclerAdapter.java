@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,23 +19,28 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.activity.FilmDetailsActivity;
+import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.data.Film;
 import com.example.nedvyha.themoviedb.filter.CustomFilter;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHolder> implements Filterable {
-    public List<Film> film;
-    private List<Film> filmList;
+
+    public List<Film> film = new ArrayList<>();
+
+    private List<Film> filmList = new ArrayList<>();
+
     private CustomFilter filter;
+
+    @NonNull
     private Context context;
 
-    public RecyclerAdapter(Context context, List<Film> film) {
+    public RecyclerAdapter(Context context) {
         this.context = context;
-        this.film = film;
-        this.filmList = film;
     }
 
     @Override
@@ -94,6 +100,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
             filter = new CustomFilter(filmList, this);
         }
         return filter;
+    }
+
+    public void updateFilm(List<Film> film) {
+        this.film.addAll(film);
+        notifyDataSetChanged();
     }
 
     class MyHolder extends RecyclerView.ViewHolder {
