@@ -60,7 +60,7 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
 
         presenter = new FilmPresenter(this);
         ButterKnife.bind(this);
-        adapter();
+        presenter.getTopRated();
     }
 
     @Override
@@ -120,13 +120,8 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
     @Override
     public void showFilms(@NonNull List<Film> films) {
         adapter = new RecyclerAdapter(this, films);
-        Log.i(TAG, "-------" + films.get(1).getTitle());
-        //adapter.updateFilm(films);
-    }
-
-    private void adapter() {
-        presenter.getTopRated();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        Log.i(TAG, "-------" + films.get(1).getTitle());
     }
 }
