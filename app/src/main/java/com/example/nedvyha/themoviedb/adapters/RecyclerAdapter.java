@@ -39,10 +39,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     private Context context;
 
+    @NonNull
+    FilmHolder.FilmHolderCallback callback;
+
     public RecyclerAdapter(Context context, @NonNull List<Film> films) {
         this.context = context;
         this.film.addAll(films);
-        Log.i(TAG, "------->>>>>>>>>>>>><<<<<<<<<<<<<<<<<<" + films.get(1).getTitle() + context);
         notifyDataSetChanged();
     }
 
@@ -51,7 +53,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         View v = LayoutInflater.from(context).inflate(R.layout.list_view, viewGroup, false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         v.setLayoutParams(lp);
-        return new FilmHolder(v);
+        return new FilmHolder(v, new FilmHolder.FilmHolderCallback() {
+            @Override
+            public void filmDetails(int i) {
+                final String id = film.get(i).getId();
+                StringNames.setTitle(film.get(i).getTitle());
+                StringNames.setFilmDetailsUrl(HelperUrl.PRE_FILM_DETAILS + id + HelperUrl.POST_FILM_DETAILS);
+                Intent intent = new Intent(context, FilmDetailsActivity.class);
+                intent.putExtra("title", film.get(i).getTitle());
+                intent.putExtra("overview", film.get(i).getOverview());
+                intent.putExtra("poster", film.get(i).getPoster_path());
+                intent.putExtra("id", id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -77,19 +92,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         }
                     });
         }
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StringNames.setTitle(film.get(i).getTitle());
-                StringNames.setFilmDetailsUrl(HelperUrl.PRE_FILM_DETAILS + id + HelperUrl.POST_FILM_DETAILS);
-                Intent intent = new Intent(context, FilmDetailsActivity.class);
-                intent.putExtra("title", film.get(i).getTitle());
-                intent.putExtra("overview", film.get(i).getOverview());
-                intent.putExtra("poster", film.get(i).getPoster_path());
-                intent.putExtra("id", id);
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -103,10 +105,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             filter = new CustomFilter(filmList, this);
         }
         return filter;
-    }
-
-    public void updateFilm(List<Film> film) {
-        this.film.addAll(film);
-        notifyDataSetChanged();
     }
 }
