@@ -10,6 +10,7 @@ import android.widget.GridView;
 
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.activity.genres.GenresUseCase;
+import com.example.nedvyha.themoviedb.activity.genres.presenter.GenresPresenter;
 import com.example.nedvyha.themoviedb.adapters.ButtonAdapter;
 import com.example.nedvyha.themoviedb.data.Genres;
 import com.example.nedvyha.themoviedb.utils.StringNames;
@@ -38,7 +39,7 @@ public class ListGenresActivity extends AppCompatActivity implements GenresUseCa
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        presenter = new GenresPresenter(this);
         presenter.getGenreList();
     }
 
