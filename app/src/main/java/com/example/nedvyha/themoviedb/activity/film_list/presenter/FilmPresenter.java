@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.example.nedvyha.themoviedb.activity.film_list.FilmListUseCase;
 import com.example.nedvyha.themoviedb.data.FilmBody;
-import com.example.nedvyha.themoviedb.request.film.ApiFilmRequest;
+import com.example.nedvyha.themoviedb.request.ApiFilmRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;

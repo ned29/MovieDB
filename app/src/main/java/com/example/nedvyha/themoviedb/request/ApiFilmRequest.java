@@ -1,9 +1,7 @@
-package com.example.nedvyha.themoviedb.request.film;
+package com.example.nedvyha.themoviedb.request;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-
-import com.example.nedvyha.themoviedb.request.IRequest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
