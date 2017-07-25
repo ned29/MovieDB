@@ -16,8 +16,8 @@ public final class HelperUrl {
 
     public static final String PRE_GENRES = "http://api.themoviedb.org/3/genre/";
 
-    public static final String POST_GENRES = "/movies?api_key=" + API_KEY + "&" +
-            "language=en-US&include_adult=false&sort_by=created_at.asc";
+    public static final String POST_GENRES = "/movies?api_key=" + API_KEY +
+            "&language=en-US&include_adult=false&sort_by=created_at.asc";
 
     public static final String PRE_FILM_DETAILS = "http://api.themoviedb.org/3/movie/";
 

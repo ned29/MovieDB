@@ -10,22 +10,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.nedvyha.themoviedb.utils.HelperUrl.PRE_FILM_DETAILS;
 
-public class ApiFilmRequest implements FilmUseCase {
+public class ApiFilmRequest{
 
     @SuppressWarnings("unused")
     private static final String TAG = ApiFilmRequest.class.getName();
 
     @NonNull
-    private IRequest request;
+    private  static IRequest request;
 
-    @Override
-    public IRequest getFilm() {
+    public static IRequest getFilm() {
         try {
             Retrofit retrofit = new Retrofit.Builder().
                     baseUrl(PRE_FILM_DETAILS).
                     addConverterFactory(GsonConverterFactory.create()).
                     build();
-            request = retrofit.create(IRequest.class);
+            IRequest request = retrofit.create(IRequest.class);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }

@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,9 +57,15 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        presenter = new FilmPresenter(this);
         ButterKnife.bind(this);
-        presenter.getTopRated();
+
+        presenter = new FilmPresenter(this);
+        if (StringNames.getTitle().equals("Top Rated")) {
+            presenter.getTopRated();
+        }
+        else {
+            presenter.getPopular();
+        }
     }
 
     @Override
@@ -122,6 +127,5 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
         adapter = new RecyclerAdapter(this, films);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        Log.i(TAG, "-------" + films.get(1).getTitle());
     }
 }

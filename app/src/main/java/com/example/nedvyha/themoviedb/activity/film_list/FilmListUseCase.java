@@ -22,5 +22,7 @@ public interface FilmListUseCase {
     interface Presenter {
 
         void getTopRated();
+
+        void getPopular();
     }
 }

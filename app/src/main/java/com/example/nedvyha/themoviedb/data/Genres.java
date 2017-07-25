@@ -1,22 +1,22 @@
 package com.example.nedvyha.themoviedb.data;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Genres {
-    private int id;
+
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
     private String name;
 
-    public Genres(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Genres() {
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
