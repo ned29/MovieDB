@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.data.FilmDetails;
-import com.example.nedvyha.themoviedb.process.ProcessFilmData;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import java.util.concurrent.TimeUnit;
@@ -46,8 +45,6 @@ public class FilmDetailsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        ProcessFilmData processFilmDetails = new ProcessFilmData(this, StringNames.getGenre());
-        processFilmDetails.execute();
     }
 
     @Override
@@ -62,9 +59,6 @@ public class FilmDetailsActivity extends AppCompatActivity {
         this.setTitle(StringNames.getTitle());
 
         Bundle bundle = getIntent().getExtras();
-
-        ProcessFilmData processFilmDetails = new ProcessFilmData(this, StringNames.getFilmDetailsUrl());
-        processFilmDetails.execute();
 
         Typeface captureFontType = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
         Typeface brushFontType = Typeface.createFromAsset(getAssets(), "PlayfairDisplay-Black.otf");

@@ -60,10 +60,11 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
         ButterKnife.bind(this);
 
         presenter = new FilmPresenter(this);
-        if (StringNames.getTitle().equals("Top Rated")) {
+        progressDialog = new ProgressDialog(this);
+
+        if (StringNames.getTitle() == "Top Rated") {
             presenter.getTopRated();
-        }
-        else {
+        } else {
             presenter.getPopular();
         }
     }
@@ -99,22 +100,15 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
 
     @Override
     public void showProgress() {
-        if (isFinishing()) {
-            if (progressDialog != null && !progressDialog.isShowing()) {
-                if (!isFinishing())
-                    progressDialog.show();
-            }
-        }
+        progressDialog.setMessage("Loading!!!");
+        progressDialog.setIndeterminate(true);
+        progressDialog.show();
+
     }
 
     @Override
     public void closeProgress() {
-        if (!isFinishing()) {
-            if (progressDialog != null) {
-                if (!isFinishing())
-                    progressDialog.dismiss();
-            }
-        }
+        progressDialog.dismiss();
     }
 
     @Override

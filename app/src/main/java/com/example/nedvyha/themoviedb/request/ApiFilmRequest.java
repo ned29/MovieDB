@@ -22,7 +22,7 @@ public class ApiFilmRequest{
                     baseUrl(PRE_FILM_DETAILS).
                     addConverterFactory(GsonConverterFactory.create()).
                     build();
-            IRequest request = retrofit.create(IRequest.class);
+            request = retrofit.create(IRequest.class);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
         }

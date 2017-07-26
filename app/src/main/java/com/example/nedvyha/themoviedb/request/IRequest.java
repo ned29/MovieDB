@@ -16,7 +16,7 @@ public interface IRequest {
     @GET("popular?api_key=" + API_KEY + "&language=en-US&page=1")
     Call<FilmBody> getPopularFilms();
 
-    @GET("list?api_key=" + API_KEY + "&language=en-US&page=1")
+    @GET("genre/movie/list?api_key=" + API_KEY + "&language=en-US&page=1")
     Call<GenreBody> getGenresFilms();
 
 }
