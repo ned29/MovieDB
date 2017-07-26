@@ -3,16 +3,7 @@ package com.example.nedvyha.themoviedb.utils;
 public final class HelperUrl {
     public static final String API_KEY = "e83332f4c6bf5e5f0533156d99c90b4e";
 
-    public static final String TOP_RATED_URL = "http://api.themoviedb.org/3/movie/top_rated?" +
-            "api_key=" + API_KEY + "&language=en-US&page=1";
-
-    public static final String TOP_POPULAR_URL = "http://api.themoviedb.org/3/movie/popular?" +
-            "api_key=" + API_KEY + "&language=en-US&page=1";
-
     public static final String IMAGE_URL = "http://image.tmdb.org/t/p/w500/";
-
-    public static final String GENRES = "http://api.themoviedb.org/3/genre/movie/list?" +
-            "api_key=" + API_KEY + "&language=en-US";
 
     public static final String PRE_GENRES = "http://api.themoviedb.org/3/genre/";
 
