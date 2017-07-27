@@ -64,8 +64,10 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
 
         if (StringNames.getTitle() == "Top Rated") {
             presenter.getTopRated();
-        } else {
+        } else if (StringNames.getTitle() == "Popular") {
             presenter.getPopular();
+        } else {
+
         }
     }
 
@@ -103,7 +105,6 @@ public class ListFilmActivity extends AppCompatActivity implements FilmListUseCa
         progressDialog.setMessage("Loading!!!");
         progressDialog.setIndeterminate(true);
         progressDialog.show();
-
     }
 
     @Override

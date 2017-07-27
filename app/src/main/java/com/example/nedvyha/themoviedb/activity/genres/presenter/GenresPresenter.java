@@ -19,7 +19,7 @@ public class GenresPresenter implements GenresUseCase.Presenter {
     private static final String TAG = FilmPresenter.class.getName();
 
     @NonNull
-    GenresUseCase.View view;
+    private GenresUseCase.View view;
 
     public GenresPresenter(GenresUseCase.View view) {
         this.view = view;

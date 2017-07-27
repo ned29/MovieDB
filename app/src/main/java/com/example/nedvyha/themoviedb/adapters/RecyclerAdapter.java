@@ -58,7 +58,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             public void filmDetails(int i) {
                 final String id = film.get(i).getId();
                 StringNames.setTitle(film.get(i).getTitle());
-                StringNames.setFilmDetailsUrl(HelperUrl.PRE_FILM_DETAILS + id + HelperUrl.POST_FILM_DETAILS);
+                StringNames.setFilmDetailsUrl(HelperUrl.URL + id + HelperUrl.POST_FILM_DETAILS);
                 Intent intent = new Intent(context, FilmDetailsActivity.class);
                 intent.putExtra("title", film.get(i).getTitle());
                 intent.putExtra("overview", film.get(i).getOverview());
