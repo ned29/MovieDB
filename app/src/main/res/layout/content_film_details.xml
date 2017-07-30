@@ -13,66 +13,64 @@
     tools:context="com.example.nedvyha.themoviedb.activity.film_details.view.FilmDetailsActivity"
     tools:showIn="@layout/activity_film_details">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/poster_image_details"
-            android:layout_width="200px"
-            android:layout_height="300px"
-            android:paddingBottom="@dimen/text_10_sp"
-            android:paddingRight="@dimen/text_10_sp"
-            android:paddingTop="@dimen/text_10_sp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/poster_image_details"
             android:textSize="@dimen/text_19_sp" />
-
-        <TextView
-            android:id="@+id/overview_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title_details"
-            android:layout_toRightOf="@+id/poster_image_details"
-            android:textSize="@dimen/text_13_sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/overview_details">
+            android:orientation="horizontal">
+
+            <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/poster_image_details"
+                android:layout_width="200px"
+                android:layout_height="300px"
+                android:paddingBottom="@dimen/text_10_sp"
+                android:paddingTop="@dimen/text_10_sp" />
+
+            <TextView
+                android:id="@+id/overview_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_13_sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/budget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/poster_image_details"
                 android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/budget"
                 android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/language"
                 android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/runtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/date"
                 android:layout_weight="1" />
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
