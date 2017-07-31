@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.genres)
     Button genres;
 
+    @BindView(R.id.favourite)
+    Button favourite;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
         topPopular.setTypeface(face1);
         topRated.setTypeface(face1);
         genres.setTypeface(face1);
+        favourite.setTypeface(face1);
 
         topPopular.setTextColor(Color.GREEN);
         topRated.setTextColor(Color.GREEN);
         genres.setTextColor(Color.GREEN);
+        favourite.setTextColor(Color.GREEN);
     }
 
     @OnClick(R.id.topRated)

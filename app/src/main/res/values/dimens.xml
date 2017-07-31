@@ -12,4 +12,6 @@
     <dimen name="size_200_px">200px</dimen>
     <dimen name="size_300_px">300px</dimen>
     <dimen name="size_80_px">80px</dimen>
+    <dimen name="size_32_dp">32dp</dimen>
+    <dimen name="size_0_dp">0dp</dimen>
 </resources>

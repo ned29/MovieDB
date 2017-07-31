@@ -11,4 +11,5 @@
     <string name="genres">Genres</string>
     <string name="popular">Most Popular</string>
     <string name="rated">Top Rated</string>
+    <string name="favourite">Favourite</string>
 </resources>
