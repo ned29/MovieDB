@@ -2,6 +2,7 @@ package com.example.nedvyha.themoviedb.activity.film_details.view;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,15 +12,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.nedvyha.themoviedb.R;
+import com.example.nedvyha.themoviedb.activity.film_details.FilmDetailsUseCase;
+import com.example.nedvyha.themoviedb.activity.film_details.presenter.FilmDetailsPresenter;
 import com.example.nedvyha.themoviedb.data.FilmDetails;
+import com.example.nedvyha.themoviedb.data.FilmDetailsInfo;
 import com.example.nedvyha.themoviedb.utils.StringNames;
 
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import io.realm.Realm;
 
-public class FilmDetailsActivity extends AppCompatActivity {
+public class FilmDetailsActivity extends AppCompatActivity implements FilmDetailsUseCase.View {
 
     @BindView(R.id.poster_image_details)
     ImageView poster;
@@ -42,10 +48,17 @@ public class FilmDetailsActivity extends AppCompatActivity {
     @BindView(R.id.runtime)
     TextView runtime;
 
+    private Realm realm;
+
     @Override
     protected void onRestart() {
         super.onRestart();
     }
+
+    @Nullable
+    private FilmDetailsUseCase.Presenter presenter;
+
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +67,12 @@ public class FilmDetailsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        realm = Realm.getInstance(getBaseContext());
         ButterKnife.bind(this);
 
         this.setTitle(StringNames.getTitle());
 
-        Bundle bundle = getIntent().getExtras();
+        bundle = getIntent().getExtras();
 
         Typeface captureFontType = Typeface.createFromAsset(getAssets(), "Capture_it.ttf");
         Typeface brushFontType = Typeface.createFromAsset(getAssets(), "PlayfairDisplay-Black.otf");
@@ -87,6 +101,8 @@ public class FilmDetailsActivity extends AppCompatActivity {
         language.setTypeface(brushFontType);
         data.setTypeface(brushFontType);
         runtime.setTypeface(brushFontType);
+
+        presenter = new FilmDetailsPresenter(this);
     }
 
     @Override
@@ -102,5 +118,19 @@ public class FilmDetailsActivity extends AppCompatActivity {
             super.onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @OnClick(R.id.favourite)
+    void setFavourite() {
+        realm.beginTransaction();
+        FilmDetailsInfo filmDetails = realm.createObject(FilmDetailsInfo.class);
+        filmDetails.setTitle(bundle.getString("title"));
+        realm.commitTransaction();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 }

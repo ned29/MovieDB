@@ -19,6 +19,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.nedvyha.themoviedb.R;
 import com.example.nedvyha.themoviedb.activity.film_details.view.FilmDetailsActivity;
 import com.example.nedvyha.themoviedb.data.Film;
+import com.example.nedvyha.themoviedb.data.FilmDetails;
 import com.example.nedvyha.themoviedb.filter.CustomFilter;
 import com.example.nedvyha.themoviedb.utils.HelperUrl;
 import com.example.nedvyha.themoviedb.utils.StringNames;

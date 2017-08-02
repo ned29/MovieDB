@@ -1,6 +1,7 @@
 package com.example.nedvyha.themoviedb.data;
 
 public class FilmDetails {
+
     private static String budget;
     private static String language;
     private static String release_date;
