@@ -29,7 +29,7 @@
             android:name=".activity.film_details.view.FilmDetailsActivity"
             android:label="@string/title_activity_film_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activity.FavouriteActivity"></activity>
+        <activity android:name=".activity.favourite.view.FavouriteActivity"></activity>
     </application>
 
 </manifest>
