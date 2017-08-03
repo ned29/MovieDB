@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import com.example.nedvyha.themoviedb.R;
+import com.example.nedvyha.themoviedb.activity.favourite.view.FavouriteActivity;
 import com.example.nedvyha.themoviedb.activity.film_list.view.ListFilmActivity;
 import com.example.nedvyha.themoviedb.activity.genres.view.ListGenresActivity;
 import com.example.nedvyha.themoviedb.utils.StringNames;
@@ -65,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.popular)
     void openPopular() {
         setClick("Popular", ListFilmActivity.class);
+    }
+
+    @OnClick(R.id.favourite)
+    void openFavourite() {
+        setClick("Favourite", FavouriteActivity.class);
     }
 
     private void setClick(String title, Class className) {

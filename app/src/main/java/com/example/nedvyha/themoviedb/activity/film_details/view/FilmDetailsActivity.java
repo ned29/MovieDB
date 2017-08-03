@@ -3,10 +3,12 @@ package com.example.nedvyha.themoviedb.activity.film_details.view;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +49,9 @@ public class FilmDetailsActivity extends AppCompatActivity implements FilmDetail
 
     @BindView(R.id.runtime)
     TextView runtime;
+
+    @BindView(R.id.btn_star)
+    Button btnStar;
 
     private Realm realm;
 
@@ -120,7 +125,7 @@ public class FilmDetailsActivity extends AppCompatActivity implements FilmDetail
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.favourite)
+    @OnClick(R.id.btn_star)
     void setFavourite() {
         realm.beginTransaction();
         FilmDetailsInfo filmDetails = realm.createObject(FilmDetailsInfo.class);
