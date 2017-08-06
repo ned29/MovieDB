@@ -20,7 +20,7 @@ public class FavouriteActivity extends AppCompatActivity implements FavouriteUse
 
     private Realm realm;
 
-    @BindView(R.id.my_recycler_view)
+    @BindView(R.id.my_recycler_view_favourite)
     RecyclerView recyclerView;
 
     @Nullable
@@ -29,7 +29,7 @@ public class FavouriteActivity extends AppCompatActivity implements FavouriteUse
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_film_details);
+        setContentView(R.layout.activity_favourite);
         ButterKnife.bind(this);
         realm = Realm.getInstance(getBaseContext());
         presenter = new FavouritePresenter(this);

@@ -3,12 +3,11 @@ package com.example.nedvyha.themoviedb.activity.film_details.view;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,7 +50,7 @@ public class FilmDetailsActivity extends AppCompatActivity implements FilmDetail
     TextView runtime;
 
     @BindView(R.id.btn_star)
-    Button btnStar;
+    ImageButton btnStar;
 
     private Realm realm;
 

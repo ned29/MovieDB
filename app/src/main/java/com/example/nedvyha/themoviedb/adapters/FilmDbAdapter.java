@@ -12,10 +12,10 @@ import io.realm.RealmResults;
 
 public class FilmDbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final RealmResults<FilmDetailsInfo> mBooks;
+    private final RealmResults<FilmDetailsInfo> filmDetailsInfo;
 
-    public FilmDbAdapter(RealmResults<FilmDetailsInfo> books) {
-        mBooks = books;
+    public FilmDbAdapter(RealmResults<FilmDetailsInfo> filmDetailsInfo) {
+        this.filmDetailsInfo = filmDetailsInfo;
     }
 
     @Override
@@ -27,11 +27,11 @@ public class FilmDbAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         FilmDbHolder filmDbHolder = (FilmDbHolder) holder;
-        filmDbHolder.title.setText(mBooks.get(position).getTitle());
+        filmDbHolder.title.setText(filmDetailsInfo.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return mBooks.size();
+        return filmDetailsInfo.size();
     }
 }
